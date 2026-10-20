@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "name": "G5 SGD Shell",
+  "version": "0.1.0",
+  "page": { "widthInches": 10, "heightInches": 5.625, "aspectRatio": "16:9" },
+  "typography": {
+    "fontFamily": "Cambria",
+    "coverTitlePt": 40,
+    "guideQuestionPt": { "min": 22, "max": 26 },
+    "bodyPt": { "min": 12, "max": 14 }
+  },
+  "branding": {
+    "university": "CARAGA STATE UNIVERSITY",
+    "school": "SCHOOL OF MEDICINE",
+    "campusLine": "CSU-Main Campus, Ampayon, Butuan City  ·  Competence Service Uprightness",
+    "logo": "assets/csu_som_shield.png",
+    "defaultRoster": "BISTER, DEIPARINE, DATO, KANASHIRO, MONTEROSO, & TIBURON"
+  },
+  "lockedSteps": [
+    { "id": "cover", "number": 1, "title": "Cover" },
+    { "id": "case", "number": 2, "title": "Case / Snapshot" },
+    { "id": "questions", "number": 3, "title": "Guide Questions overview" },
+    { "id": "answers", "number": 4, "title": "Answer blocks" },
+    { "id": "visuals", "number": 5, "title": "Tables / Flowcharts" },
+    { "id": "takeaways", "number": 6, "title": "Summary & Take-aways" },
+    { "id": "references", "number": 7, "title": "References" },
+    { "id": "thank-you", "number": 8, "title": "Thank-you" }
+  ],
+  "subjects": {
+    "MD201": { "name": "Foundations", "banner": "#1B5E20", "subhead": "#2E7D32", "accent": "#C9A227", "softBg": "#E8F5E9" },
+    "MD202": { "name": "Community & Family", "banner": "#BF360C", "subhead": "#E64A19", "accent": "#C9A227", "softBg": "#FBE9E7" },
+    "MD203": { "name": "Microbiology & Parasitology", "banner": "#1B5E20", "subhead": "#33691E", "accent": "#33691E", "softBg": "#E8F5E9" },
+    "MD204": { "name": "Pediatrics", "banner": "#1565C0", "subhead": "#1976D2", "accent": "#EF6C00", "softBg": "#E3F2FD" },
+    "MD205": { "name": "Obstetrics", "banner": "#AD1457", "subhead": "#C2185B", "accent": "#C2185B", "softBg": "#FCE4EC" },
+    "MD206": { "name": "Internal Medicine / Pathology", "banner": "#4B2E6D", "subhead": "#3D5A80", "accent": "#8B1C1C", "softBg": "#E8E0F0" },
+    "MD207": { "name": "Pharmacology", "banner": "#0D7377", "subhead": "#14919B", "accent": "#E07A5F", "softBg": "#E0F7F7" }
+  }
+}
