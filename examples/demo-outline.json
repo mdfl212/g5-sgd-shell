@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0",
+  "metadata": {
+    "title": "How to Structure an SGD Presentation",
+    "courseCode": "MD201",
+    "caseLabel": "Non-clinical renderer demonstration",
+    "roster": "BISTER, DEIPARINE, DATO, KANASHIRO, MONTEROSO, & TIBURON",
+    "sourceFiles": []
+  },
+  "slides": [
+    { "step": "cover", "title": "How to Structure an SGD Presentation", "layout": "cover", "content": [{ "type": "text", "text": "A non-clinical demonstration of the G5 SGD Shell renderer." }] },
+    { "step": "case", "title": "Demo Snapshot", "layout": "case", "content": [{ "type": "card", "label": "Purpose", "text": "Demonstrate the slide shell and layout engine without patient information or clinical claims." }, { "type": "tag", "items": ["DEMO", "MD201", "SOURCE-FREE"] }] },
+    { "step": "questions", "title": "Guide Questions", "layout": "questions", "content": [{ "type": "numbered-list", "items": ["What information belongs on the cover?", "How should a case snapshot be summarized?", "When are tables or flowcharts preferable?", "How should references and take-aways be presented?"] }] },
+    { "step": "answers", "title": "Answer Block · Structure", "layout": "cards", "guideQuestion": 1, "content": [{ "type": "card", "label": "One purpose per slide", "text": "Keep each block focused on one idea. Use a short heading and concise supporting text." }, { "type": "card", "label": "Traceability", "text": "Link content to source IDs when a real case and references are supplied." }] },
+    { "step": "answers", "title": "Answer Block · Visual choice", "layout": "cards", "guideQuestion": 2, "content": [{ "type": "card", "label": "Use a table", "text": "When readers need to compare categories, findings, or options." }, { "type": "card", "label": "Use a flowchart", "text": "When readers need to follow a sequence, pathway, or decision process." }] },
+    { "step": "visuals", "title": "Visual Layout Examples", "layout": "table", "content": [{ "type": "table", "columns": ["Visual", "Best used for"], "rows": [["Card", "One focused concept"], ["Table", "Side-by-side comparison"], ["Flowchart", "Sequence or decision pathway"]] }, { "type": "flowchart", "nodes": [{ "id": "a", "label": "Source material" }, { "id": "b", "label": "Structured outline" }, { "id": "c", "label": "Rendered deck" }], "edges": [{ "from": "a", "to": "b" }, { "from": "b", "to": "c" }] }] },
+    { "step": "takeaways", "title": "Summary & Take-aways", "layout": "takeaways", "content": [{ "type": "numbered-list", "items": ["Keep the eight-step narrative spine in order.", "Prefer editable shapes over screenshots where practical.", "Preserve figure proportions and check slide boundaries.", "Do not invent case facts or references."] }] },
+    { "step": "references", "title": "References", "layout": "references", "content": [{ "type": "text", "text": "No external clinical references are used in this non-clinical renderer demonstration." }] },
+    { "step": "thank-you", "title": "Thank You", "layout": "closing", "content": [{ "type": "text", "text": "GROUP 5" }, { "type": "text", "text": "BISTER, DEIPARINE, DATO, KANASHIRO, MONTEROSO, & TIBURON" }] }
+  ]
+}
