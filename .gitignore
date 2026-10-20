@@ -1,0 +1,23 @@
+# Generated decks and QA artifacts
+output/
+qa/
+*.generated.pptx
+*.preview.pdf
+*.contact-sheet.png
+
+# Dependencies and caches
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+
+# Local case data may contain sensitive information
+cases/local/
+*.patient.json
+*.deidentified-draft.json
+
+# Local renderer outputs
+dist/
