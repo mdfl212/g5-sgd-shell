@@ -2,7 +2,7 @@
 
 A reusable, source-first workflow for building consistent Group 5 Small Group Discussion (SGD) PowerPoint decks for Caraga State University School of Medicine (CSU SoM), modules MD201–MD207.
 
-> **Status:** Early prototype. A basic editable PowerPoint renderer, outline checks, structural deck validator, theme configuration, and template inspector are implemented. Full visual QA, text-overflow detection, figure insertion, and clinical-source validation remain planned.
+> **Status:** Early prototype. The source code, theme configuration, outline schema, example outline, tests, documentation, and GitHub Actions workflow are published. The original PowerPoint template and CSU shield are binary assets that are still pending upload. Until those assets are added under `assets/`, generated decks will omit the shield and the template-inspection command cannot run.
 
 ## Goals
 
@@ -10,60 +10,53 @@ A reusable, source-first workflow for building consistent Group 5 Small Group Di
 - Apply the MD201–MD207 color palette and consistent CSU SoM branding.
 - Keep slides editable in PowerPoint.
 - Preserve clinical/source fidelity and cite references in Vancouver style.
-- Validate slide geometry, image aspect ratios, content coverage, and visual rendering before delivery.
+- Validate slide geometry and outline structure before delivery.
 - Make the workflow usable from GitHub Copilot / VS Code and other agents that support skill files.
 
 ## Repository contents
 
 ```text
 .
-├── assets/
-│   ├── G5_SGD_Shell_Template_MD201-MD207.pptx
-│   └── csu_som_shield.png
+├── .github/
+│   ├── copilot-instructions.md
+│   └── workflows/ci.yml
 ├── docs/
 │   ├── ARCHITECTURE.md
 │   ├── EXTERNAL_SKILLS.md
 │   └── ROADMAP.md
-├── references/
-├── schemas/
-│   └── outline.schema.json
-├── examples/
-│   └── demo-outline.json
+├── examples/demo-outline.json
+├── schemas/outline.schema.json
 ├── scripts/
 │   ├── build_deck.py
 │   ├── inspect_template.py
 │   ├── validate_deck.py
 │   └── check_package.py
-├── tests/
+├── tests/test_outline_schema.py
 ├── theme.json
 ├── CHATGPT_INSTRUCTIONS.md
-├── SKILL.md
-└── README.md
+└── SKILL.md
 ```
 
 ## Quick start
 
-1. Open the repository in VS Code.
-2. Open `SKILL.md` and `CHATGPT_INSTRUCTIONS.md` to review the behavioral and output constraints.
-3. Place the case vignette, guide questions, and source materials in a working folder. Do not commit identifiable patient information or copyrighted textbooks/PDFs without permission.
-4. Choose the subject code (MD201–MD207), confirm the guide questions and Group 5 roster, and generate/rebuild the deck.
-5. Install the small Python dependency set and build the included non-clinical demo deck:
+Requires Python 3.10+.
 
-   ```bash
-   python -m pip install -r requirements.txt
-   python scripts/check_package.py
-   python -m unittest discover -s tests -v
-   python scripts/build_deck.py
-   python scripts/validate_deck.py dist/g5-demo-deck.pptx --outline examples/demo-outline.json
-   ```
+```bash
+python -m venv .venv
+# Windows PowerShell: .venv\\Scripts\\Activate.ps1
+# macOS/Linux: source .venv/bin/activate
+python -m pip install -r requirements.txt
+python scripts/check_package.py
+python -m unittest discover -s tests -v
+python scripts/build_deck.py
+python scripts/validate_deck.py dist/g5-demo-deck.pptx --outline examples/demo-outline.json
+```
 
-6. Inspect the source template structure when it changes:
+To inspect the supplied PowerPoint after adding it to `assets/G5_SGD_Shell_Template_MD201-MD207.pptx`, run:
 
-   ```bash
-   python scripts/inspect_template.py
-   ```
-
-The renderer is an early prototype. The validator checks basic PPTX integrity, slide dimensions, outline step order, and shape bounds; it does not prove text fits or that clinical claims and references are correct.
+```bash
+python scripts/inspect_template.py
+```
 
 ## Locked slide spine
 
@@ -90,4 +83,8 @@ Additional slides may live within these steps but must not introduce new top-lev
 
 ## Validation limits
 
-A passing structural validator is not a substitute for visual inspection, checking text overflow, verifying references, or reviewing clinical content against source material. Treat these as separate quality gates.
+The validator checks PowerPoint integrity, slide dimensions, outline step order, and shape bounds. It does not prove text fits, figures are preserved, references are accurate, or clinical content is correct. Treat these as separate review gates.
+
+## Pending upload
+
+The complete local starter ZIP includes the original shell PPTX and CSU SoM shield image. These binary files are not yet present in this GitHub repository. Add the two files to `assets/` before treating the repository as a complete branded template package.
