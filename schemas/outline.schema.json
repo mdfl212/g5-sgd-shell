@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/mdfl212/g5-sgd-shell/schemas/outline.schema.json",
+  "title": "G5 SGD Deck Outline",
+  "description": "Structured outline for a source-faithful Group 5 SGD PowerPoint deck.",
+  "type": "object",
+  "required": ["schemaVersion", "metadata", "slides"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "metadata": {
+      "type": "object",
+      "required": ["title", "courseCode", "roster"],
+      "properties": {
+        "title": { "type": "string", "minLength": 1 },
+        "courseCode": { "enum": ["MD201", "MD202", "MD203", "MD204", "MD205", "MD206", "MD207"] },
+        "roster": { "type": "string", "minLength": 1 },
+        "caseLabel": { "type": "string" },
+        "sourceFiles": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["step", "title", "layout", "content"],
+        "properties": {
+          "step": { "enum": ["cover", "case", "questions", "answers", "visuals", "takeaways", "references", "thank-you"] },
+          "title": { "type": "string", "minLength": 1 },
+          "layout": { "type": "string", "minLength": 1 },
+          "guideQuestion": { "type": "integer", "minimum": 1 },
+          "content": { "type": "array", "items": { "$ref": "#/$defs/contentBlock" } },
+          "sources": { "type": "array", "items": { "type": "string" } },
+          "notes": { "type": "string" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "$defs": {
+    "contentBlock": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": { "enum": ["text", "card", "table", "flowchart", "figure", "citation", "tag", "numbered-list"] },
+        "text": { "type": "string" },
+        "label": { "type": "string" },
+        "items": { "type": "array", "items": { "type": "string" } },
+        "columns": { "type": "array", "items": { "type": "string" } },
+        "rows": { "type": "array", "items": { "type": "array", "items": { "type": "string" } } },
+        "path": { "type": "string" },
+        "alt": { "type": "string" },
+        "sourceId": { "type": "string" },
+        "nodes": { "type": "array", "items": { "type": "object" } },
+        "edges": { "type": "array", "items": { "type": "object" } }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}
